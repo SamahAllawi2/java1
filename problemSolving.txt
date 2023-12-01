@@ -1,0 +1,39 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner num=new Scanner(System.in);
+       
+        int n=num.nextInt();
+        int[]arr =new int[n];
+        for(int i=0;i<n;i++){
+            //  Scanner nums=new Scanner(System.in);
+            arr[i] =num.nextInt();
+        }
+        int min=arr[0];
+        int max=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]<min){
+                min=arr[i];
+            }
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        HashSet<Integer> numberset=new HashSet<>();
+        for(int nums:arr){
+            numberset.add(nums);
+        }int missingCount=0;
+        for(int i=min;i<=max;i++){
+            if(!numberset.contains(i)){
+                missingCount++;
+            }
+        }
+        System.out.println(missingCount);
+
+        }
+    }
